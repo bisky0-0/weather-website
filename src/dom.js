@@ -1,3 +1,4 @@
+
 export function scroll() {
     let leftArrow = document.getElementById('left-arrow')
     let rightArrow = document.getElementById('right-arrow');
@@ -34,14 +35,19 @@ export function scroll() {
 
     leftArrow.onclick = () => {
         hoursContainer.scrollBy({ left: - hoursContainer.offsetWidth, top: 0, behavior: 'smooth' })
-        console.log('scrolled left')
     };
 
     rightArrow.addEventListener('click', () => {
         hoursContainer.scrollBy({ left: +hoursContainer.offsetWidth, top: 0, behavior: 'smooth' })
-
-        console.log('scrolled right')
     })
 }
 
 
+
+export function loading() {
+    let background = document.createElement('div');
+    let circle = document.createElement('div');
+
+    document.body.appendChild(background).setAttribute('id', 'loadingPage');
+    background.appendChild(circle).setAttribute('id', 'loading-circle');
+}

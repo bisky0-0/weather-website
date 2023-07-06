@@ -6,245 +6,159 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>weather website</title>
-
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
     <header id="header">
-        <div id="logo">weather</div>
-        <div id="search-container">
-            <input type="search" name="search" id="search-bar" placeholder="search...">
-            <button id="search-btn">search</button>
-        </div>
+        <div id="logo">weather forecast <img src="./icons/02d.png" alt="" id="logo-icon"></div>
 
-        <button id="cel-fehr-btn">c/f</button>
+        <form method="get" id="search-container">
+            <input type="search" name="search" id="search-bar" placeholder="city, state, country...." required>
+            <button id="search-btn" type="submit">search</button>
+        </form>
+
+        <div id="cel-fehr-btn"><button id="celicius-btn">C</button><button id="fehrenhite-btn">F</button></div>
     </header>
 
     <main id="main">
         <section id="section-one">
             <div id="location-brief">
-                <div id="country-name">cairo</div>
-                <div id="current-date">Jun 1 7:46PM</div>
+                <div id="country-name"></div>
+                <div id="current-description"></div>
                 <div id="weather-brief">
-                    <img id="weather-icon" src="./images/weather/day/116.png"></img>
-                    <div id="temp">28</div>
+                    <img id="weather-icon" src=""></img>
+                    <div id="temp" class="temp"></div>
                 </div>
                 <div id="high-low-temp">
-                    <div id="high">high: <span id="high-temp">28</span></div>
-                    <div id="low">low:<span id="low-temp">22</span></div>
+                    <div id="high">high: <span id="high-temp" class="temp"></span></div>
+                    <div id="low">low: <span id="low-temp" class="temp"></span></div>
                 </div>
             </div>
             <div id="today-info">
                 <div class="info-box">
                     <h5 class="info-title">HUMIDITY</h5>
-                    <p class="data" id="humidity">64%</p>
+                    <p class="data" id="humidity"></p>
                 </div>
                 <div class="info-box">
                     <h5 class="info-title">WIND</h5>
-                    <p class="data" id="wind">ne 6 km/hr</p>
+                    <p class="data" id="wind_speed"></p>
                 </div>
                 <div class="info-box">
                     <h5 class="info-title">UV index</h5>
-                    <p class="data" id="uv-index">0.85</p>
+                    <p class="data" id="uvi"></p>
                 </div>
                 <div class="info-box">
                     <h5 class="info-title">SUNRISE</h5>
-                    <p class="data" id="sunrise">5:06pm</p>
+                    <p class="data" id="sunrise"></p>
                 </div>
                 <div class="info-box">
                     <h5 class="info-title">SUNSET</h5>
-                    <p class="data" id="sunset">10:40am</p>
+                    <p class="data" id="sunset"></p>
                 </div>
                 <div class="info-box">
                     <h5 class="info-title">VISIBILITY</h5>
-                    <p class="data" id="visibility">100km</p>
+                    <p class="data" id="visibility"></p>
                 </div>
                 <div class="info-box">
                     <h5 class="info-title">CLOUDLINESS</h5>
-                    <p class="data" id="cloudliness">cloudy</p>
+                    <p class="data" id="clouds"></p>
                 </div>
                 <div class="info-box">
-                    <h5 class="info-title">CHANCE OF RAIN</h5>
-                    <p class="data" id="chance-of-rain">0%</p>
+                    <h5 class="info-title">feels like</h5>
+                    <p class="data temp" id="feels_like"></p>
                 </div>
                 <div class="info-box">
                     <h5 class="info-title">PRESSURE</h5>
-                    <p class="data" id="pressure">1023 hpa</p>
+                    <p class="data" id="pressure"></p>
                 </div>
             </div>
         </section>
 
         <section id="section-two">
-            <h1>hourly forcast</h1>
+            <h1>hourly forecast</h1>
             <div id="section-two-content">
                 <div id="left-arrow"></div>
                 <div id="hours-container">
-                    <div class="hour-info">
-                        <div class="hour">2:30pm</div>
-                        <img src="./images/weather/day/113.png" alt="">
-                        <div class="hour-temp">30</div>
-                    </div>
-                    <div class="hour-info">
-                        <div class="hour">2:30pm</div>
-                        <img src="./images/weather/day/113.png" alt="">
-                        <div class="hour-temp">30</div>
-                    </div>
-                    <div class="hour-info">
-                        <div class="hour">2:30pm</div>
-                        <img src="./images/weather/day/113.png" alt="">
-                        <div class="hour-temp">30</div>
-                    </div>
-                    <div class="hour-info">
-                        <div class="hour">2:30pm</div>
-                        <img src="./images/weather/day/113.png" alt="">
-                        <div class="hour-temp">30</div>
-                    </div>
-                    <div class="hour-info">
-                        <div class="hour">2:30pm</div>
-                        <img src="./images/weather/day/113.png" alt="">
-                        <div class="hour-temp">30</div>
-                    </div>
-                    <div class="hour-info">
-                        <div class="hour">2:30pm</div>
-                        <img src="./images/weather/day/113.png" alt="">
-                        <div class="hour-temp">30</div>
-                    </div>
-                    <div class="hour-info">
-                        <div class="hour">2:30pm</div>
-                        <img src="./images/weather/day/113.png" alt="">
-                        <div class="hour-temp">30</div>
-                    </div>
-                    <div class="hour-info">
-                        <div class="hour">2:30pm</div>
-                        <img src="./images/weather/day/113.png" alt="">
-                        <div class="hour-temp">30</div>
-                    </div>
-                    <div class="hour-info">
-                        <div class="hour">2:30pm</div>
-                        <img src="./images/weather/day/113.png" alt="">
-                        <div class="hour-temp">30</div>
-                    </div>
-                    <div class="hour-info">
-                        <div class="hour">2:30pm</div>
-                        <img src="./images/weather/day/113.png" alt="">
-                        <div class="hour-temp">30</div>
-                    </div>
-                    <div class="hour-info">
-                        <div class="hour">2:30pm</div>
-                        <img src="./images/weather/day/113.png" alt="">
-                        <div class="hour-temp">30</div>
-                    </div>
-                    <div class="hour-info">
-                        <div class="hour">2:30pm</div>
-                        <img src="./images/weather/day/113.png" alt="">
-                        <div class="hour-temp">30</div>
-                    </div>
-                    <div class="hour-info">
-                        <div class="hour">2:30pm</div>
-                        <img src="./images/weather/day/113.png" alt="">
-                        <div class="hour-temp">30</div>
-                    </div>
-                    <div class="hour-info">
-                        <div class="hour">2:30pm</div>
-                        <img src="./images/weather/day/113.png" alt="">
-                        <div class="hour-temp">30</div>
-                    </div>
-                    <div class="hour-info">
-                        <div class="hour">2:30pm</div>
-                        <img src="./images/weather/day/113.png" alt="">
-                        <div class="hour-temp">30</div>
-                    </div>
-                    <div class="hour-info">
-                        <div class="hour">2:30pm</div>
-                        <img src="./images/weather/day/113.png" alt="">
-                        <div class="hour-temp">30</div>
-                    </div>
-                    <div class="hour-info">
-                        <div class="hour">2:30pm</div>
-                        <img src="./images/weather/day/113.png" alt="">
-                        <div class="hour-temp">30</div>
-                    </div>
-                    <div class="hour-info">
-                        <div class="hour">2:30pm</div>
-                        <img src="./images/weather/day/113.png" alt="">
-                        <div class="hour-temp">30</div>
-                    </div>
                 </div>
                 <div id="right-arrow"></div>
             </div>
         </section>
 
         <section id="section-three">
-            <h1>this week forcast</h1>
+            <h1>this week forecast</h1>
             <div id="schedual-content">
                 <div class="data-name">day</div>
                 <div class="data-name">temperature</div>
                 <div class="data-name">humidity</div>
-                <div class="data-name">chance of rain</div>
+                <div class="data-name">clouds</div>
             </div>
             <div class="day-card">
                 <div class="day-card-child">
                     <div class="day-name">saturday</div>
-                    <img src="./images/weather/night/353.png" alt="">
+                    <img src="" alt="" class="day-icon">
                 </div>
-                <div class="day-card-child">27</div>
-                <div class="day-card-child">80%</div>
-                <div class="day-card-child">0%</div>
+                <div class="day-card-child day-temp temp"></div>
+                <div class="day-card-child day-humidity"></div>
+                <div class="day-card-child day-clouds"></div>
             </div>
             <div class="day-card">
                 <div class="day-card-child">
                     <div class="day-name">saturday</div>
-                    <img src="./images/weather/night/353.png" alt="">
+                    <img src="" alt="" class="day-icon">
                 </div>
-                <div class="day-card-child">27</div>
-                <div class="day-card-child">80%</div>
-                <div class="day-card-child">0%</div>
+                <div class="day-card-child day-temp temp"></div>
+                <div class="day-card-child day-humidity"></div>
+                <div class="day-card-child day-clouds"></div>
             </div>
             <div class="day-card">
                 <div class="day-card-child">
                     <div class="day-name">saturday</div>
-                    <img src="./images/weather/night/353.png" alt="">
+                    <img src="" alt="" class="day-icon">
                 </div>
-                <div class="day-card-child">27</div>
-                <div class="day-card-child">80%</div>
-                <div class="day-card-child">0%</div>
+                <div class="day-card-child day-temp temp"></div>
+                <div class="day-card-child day-humidity"></div>
+                <div class="day-card-child day-clouds"></div>
             </div>
             <div class="day-card">
                 <div class="day-card-child">
                     <div class="day-name">saturday</div>
-                    <img src="./images/weather/night/353.png" alt="">
+                    <img src="" alt="" class="day-icon">
                 </div>
-                <div class="day-card-child">27</div>
-                <div class="day-card-child">80%</div>
-                <div class="day-card-child">0%</div>
+                <div class="day-card-child day-temp temp"></div>
+                <div class="day-card-child day-humidity"></div>
+                <div class="day-card-child day-clouds"></div>
             </div>
             <div class="day-card">
                 <div class="day-card-child">
                     <div class="day-name">saturday</div>
-                    <img src="./images/weather/night/353.png" alt="">
+                    <img src="" alt="" class="day-icon">
                 </div>
-                <div class="day-card-child">27</div>
-                <div class="day-card-child">80%</div>
-                <div class="day-card-child">0%</div>
+                <div class="day-card-child day-temp temp"></div>
+                <div class="day-card-child day-humidity"></div>
+                <div class="day-card-child day-clouds"></div>
             </div>
             <div class="day-card">
                 <div class="day-card-child">
                     <div class="day-name">saturday</div>
-                    <img src="./images/weather/night/353.png" alt="">
+                    <img src="" alt="" class="day-icon">
                 </div>
-                <div class="day-card-child">27</div>
-                <div class="day-card-child">80%</div>
-                <div class="day-card-child">0%</div>
+                <div class="day-card-child day-temp temp"></div>
+                <div class="day-card-child day-humidity"></div>
+                <div class="day-card-child day-clouds"></div>
             </div>
             <div class="day-card">
                 <div class="day-card-child">
                     <div class="day-name">saturday</div>
-                    <img src="./images/weather/night/353.png" alt="">
+                    <img src="" alt="" class="day-icon">
                 </div>
-                <div class="day-card-child">27</div>
-                <div class="day-card-child">80%</div>
-                <div class="day-card-child">0%</div>
+                <div class="day-card-child day-temp temp"></div>
+                <div class="day-card-child day-humidity"></div>
+                <div class="day-card-child day-clouds"></div>
             </div>
         </section>
     </main>

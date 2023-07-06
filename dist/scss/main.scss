@@ -1,15 +1,19 @@
+@import 'devices';
+
     $MarckFont: "../fonts/MarckScript";
     
     @font-face {
         font-family: 'Marck Script';
         font-style: normal;
         font-weight: 400;
-        src:url("../fonts/MarckScript-Regular.ttf"), format('ttf');
+        src:url('../fonts/MarckScript-Regular.ttf'), format('ttf');
     }
     
     
     $primary-color: #00293b;
     $secondry-color: #ffa200e8;
+    $headrer-height: 80px;
+    $search-bar-width: 400px;
     $boxs-shadow: 1px 1px 4px #0003;
     $global-border-radius: 15px;
     $font-families:();
@@ -18,8 +22,8 @@
     $font-sizes: (
         "regular": 1rem,
         "medium": 1.5rem,
-        "blod": 2rem,
-        "heading": 4rem,
+        "bold": 2rem,
+        "heading": 3rem,
         "largest": 5rem,
         "buttons-font": .7rem
     );
@@ -47,26 +51,64 @@
 
 #header{
     width: 100%;
-    height: 80px;
+    height: $headrer-height;
     background-color: $primary-color;
     @include flexCenter(row);
     justify-content: space-between;
     padding: 5px 30px;
+    @include divice(599px){
+        flex-flow: column;
+        height: 100px;
+        padding: 5px 15px;
+    }
+    @include divice(600px){
+        flex-flow: column;
+        height: 100px;
+        padding: 5px 15px;
+    }
+
+    @include divice(900px){
+        flex-flow: row;
+    }
 
     #logo{
         color: $light-font-color;
+        font-size: chooseFontSize('bold');
         font-family: 'Marck Script', cursive;  
+        @include flexCenter('row');
+        @include divice(599px){
+            font-size: 1rem;
+        };
+
+        #logo-icon{
+            width: 50px;
+        }
       }
 
+     
+
     #search-container{
-        #search-bar{
-            width: 400px;
+        position: relative;
+        width: fit-content;
+        height: 100%;
+        @include flexCenter(row);
+        justify-content: flex-start;
+        @include divice(599px){
             height: 40px;
-            border-bottom-left-radius: 30px;
-            border-top-left-radius: 30px;
+            width: 100%;
+        }
+
+        #search-bar{
+            width: $search-bar-width;
+            height: 40px;
+            border-bottom-left-radius: 10px;
+            border-top-left-radius: 10px;
             outline: none;
             border: none;
             padding: 10px 30px;
+            @include divice(599px){
+                width: 80%;
+            }
         }
 
         #search-btn{
@@ -77,26 +119,80 @@
             border-top-right-radius: 30px;
             outline: none;
             border: none;
-            margin-left: -3px;
             cursor: pointer;
         }
     }
 
     #cel-fehr-btn{
-        width: 120px;
-        height: 40px;
+        position: relative;
+        width: 100px;
+        height: 35px;
         border-radius: 30px;
-
-        ::before{
-            content: '';
-            top: 0;
-            position: absolute;
-            width: 60px;
-            height: 36px;
-            background-color: $secondry-color;
+        font-size: chooseFontSize(medium);
+        @include flexCenter(row);
+        justify-content: space-around;
+        background-color: #fff;
+        overflow: hidden;
+        perspective: 300px;
+        @include divice(599px){
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            height: 90px;
+            width: 40px;
+            box-shadow: 1px 1px 10px $secondry-color;
+            flex-flow: column;
+            z-index: 3;
         }
+
+        @include divice(600px){
+            position: fixed;
+            right: 15px;
+            bottom: 15px;
+            height: 100px;
+            width: 45px;
+            box-shadow: 1px 1px 10px $secondry-color;
+            flex-flow: column;
+            z-index: 3;
+        }
+
+        @include divice(900px){
+            position:relative;
+            right: 0;
+            bottom: 0;
+            height: 35px;
+            width: 100px;
+            box-shadow: none;
+            flex-flow: row;
+        }
+
+        button{
+            padding: 3px;
+            font-size: 1.3rem;
+            width: 50%;
+            height: 100%;
+            @include flexCenter(row);
+            border: none;
+            background-color: #fff;
+            @include divice(599px){
+                width: 100%;
+            };
+         }
+
+         button:hover{
+            background-color: $secondry-color;
+            transform: translate3d(0, 0px, 10px);
+            cursor: pointer;
+            font-size: 1.8rem;
+        }
+
+         .active{
+            background-color: $secondry-color;
+         }
     }
 }
+
+
 
 #main{
     width: 100%;
@@ -108,6 +204,19 @@
     width: 100%;
     height: 350px;
     padding: 20px 40px;
+    @include divice(599px){
+        flex-flow: column;
+        height: fit-content;
+        padding: 10px 10px;
+    }
+
+    @include divice(600px){
+        padding: 10px 5px;
+    }
+
+    @include divice(900px){
+        padding: 20px 40px;
+    }
 }
 
 #section-one{
@@ -118,6 +227,14 @@
         @include flexCenter(column);
         justify-content: flex-start;
         padding: 10px;
+        @include divice(599px){
+            width: 95%;
+        }
+        @include divice(600px){
+            width: 30%;
+            padding:  0;
+            justify-content: center;
+        }
 
         #country-name{
             font-size: chooseFontSize("heading");
@@ -143,9 +260,24 @@
 
         #high-low-temp{
             @include flexCenter(row);
+            text-transform: capitalize;
+            color: $primary-color;
+            
             #high{
                 margin-right: 30px;
+                #high-temp{
+                    color: $secondry-color;
+            font-size: 1.3rem;
+                }
             }
+
+            #low{
+                #low-temp{
+                    color: $secondry-color;
+            font-size: 1.3rem;
+                }
+            }
+            
         }
     }
 
@@ -158,6 +290,15 @@
         border-radius: $global-border-radius;
         @include flexCenter(row wrap);
 
+        @include divice(599px){
+            width: 97%;
+        }
+
+
+        @include divice(600px){
+            padding: 10px 10px;
+        }
+
         .info-box{
             width: calc(100% / 3);
             height: 75px;
@@ -165,11 +306,17 @@
             .info-title{
                 font-size: 11px;
                 color: adjust-hue($color: #000b, $degrees: 0);
+                @include divice(599px){
+                    margin-bottom: 5px;
+                }
             }
 
             .data{
                 font-size: chooseFontSize("medium");
                 color: $dark-font-color;
+                @include divice(599px){
+                    font-size: chooseFontSize('regular');
+                }
             }
         }
     }
@@ -187,12 +334,23 @@
         color: $primary-color;
         font-size: chooseFontSize("blod");
         text-transform: uppercase;
+        @include divice(599px){
+            font-size: 1.4rem;
+        }
     }
 
 #section-two-content{
     width: 100%;
     height: 400px;
     padding: 20px 30px;
+    @include divice(599px){
+        padding: 0 0;
+    }
+
+    @include divice(900px){
+        padding: 20px 30px
+    }
+
     @include flexCenter(row);
 
     perspective: 200px;
@@ -204,6 +362,17 @@
         border-left: 5px solid #00293b;
         border-bottom: 5px solid #00293b;
         cursor: pointer;
+        @include divice(599px){
+            display: none;
+        }  
+        
+        @include divice(600px){
+            display: none;
+        }    
+
+        @include divice(900px){
+            display: block;
+        }    
 
         &:hover{
             transform: translate3d(0, 0, 5px);
@@ -211,7 +380,14 @@
     }
 
     #hours-container{
-        width: 50%;
+        width: 75%;
+        @include divice(599px){
+        width: 100%;
+        }
+
+        @include divice(900px){
+            width: 80%;
+        }
         height: 90%;
         padding: 20px;
         border-top: 3px solid $primary-color;
@@ -263,24 +439,38 @@
     width: 100%;
     background-color: $primary-color;
     @include flexCenter(column);
-    padding: 30px 10px;
+    padding: 60px 10px;
 
     h1{
         font-size: chooseFontSize('blod');
         margin-bottom: 20px;
         color: $light-font-color;
         text-transform: uppercase;
+        @include divice(599px){
+            font-size: 1.4rem;
+        }
     }
 
   
     #schedual-content, .day-card{
         width: 65%;
+        @include divice(599px){
+            width: 100%;
+        }
+
+        @include divice(600px){
+            width: 90%;
+        }
+
+        @include divice(900px){
+            width: 65%;
+        }
+    
         height: 70px;
         margin-bottom: 10px;
         background-color: #fff;
         border-radius: $global-border-radius;
         @include flexCenter(row);
-        justify-content: space-around
     }
 
     #schedual-content{
@@ -290,6 +480,40 @@
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         text-transform: uppercase;
+        .data-name{
+            width: calc(100%/4);
+            @include flexCenter(row)
+        }
+        @include divice(599px){
+            text-transform: capitalize;
+            font-size: .8rem;
+        }
+    }
+
+    .day-card{
+        .day-card-child{
+            width: calc(100%/4);
+            padding-left: 10px;
+            @include flexCenter(row);
+            @include divice(599px){
+                padding-left: 10px;
+            }
+
+            .day-name{
+                width: 60%;
+                font-size: chooseFontSize('regular');
+                text-transform: capitalize;
+            }
+
+            img{
+                width: 40px;
+                height: 40px;
+                margin-left: 10px;
+                @include divice(599px){
+                    margin-left: 0;
+                }
+            }
+        }
     }
 
 
@@ -308,5 +532,65 @@
         vertical-align: top;
         font-size: chooseFontSize("medium");
         margin: -10px 5px 0 5px;
+    }
+}
+
+#loadingPage{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000e6;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+
+    #loading-circle{
+        width: 200px;
+        height: 200px;
+        border: 10px dotted $secondry-color;
+        border-right-color: #fff;
+        border-radius: 50%;
+        animation: orbit 1s linear 0s infinite normal ;
+    }
+}
+
+@keyframes orbit {
+    0%{
+        transform: rotate(0deg);
+    }
+
+    25%{
+        transform: rotate(90deg);
+    }
+
+    50%{
+        transform: rotate(180deg);
+    }
+
+    75%{
+        transform: rotate(270deg);
+    }  
+    
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+#error-container{
+    position:absolute;
+    top: calc($headrer-height/1.4);
+    width:  $search-bar-width;
+    padding: 10px;
+    @include flexCenter(row);
+    background-color: rgb(255, 222, 222);
+    color: #f00;
+    text-align: center;
+    border-radius: 10px;
+    @include divice(599px){
+        width: 80%;
+        bottom:-10px;
+        height: fit-content;
     }
 }
