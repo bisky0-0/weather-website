@@ -407,6 +407,7 @@
 @media (max-width: 599px) {
   #section-two #section-two-content #hours-container {
     width: 100%;
+    padding: 20px 10px;
   }
 }
 @media (min-width: 900px) {
@@ -617,9 +618,28 @@
 }
 @media (max-width: 599px) {
   #error-container {
+    top: 100%;
+    left: 0;
     width: 80%;
     bottom: -10px;
     height: -moz-fit-content;
     height: fit-content;
+    font-size: 0.7rem;
+    padding: 7px;
+  }
+}
+@media (min-width: 600px) {
+  #error-container {
+    top: 100%;
+    left: 0;
+    width: 81%;
+    bottom: -10px;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
+@media (min-width: 900px) {
+  #error-container {
+    top: 66.6666666667px;
   }
 }/*# sourceMappingURL=main.css.map */
