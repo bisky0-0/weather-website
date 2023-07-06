@@ -94,6 +94,7 @@
         @include flexCenter(row);
         justify-content: flex-start;
         @include divice(599px){
+            justify-content: center;
             height: 40px;
             width: 100%;
         }
@@ -332,7 +333,7 @@
 
     h1{
         color: $primary-color;
-        font-size: chooseFontSize("blod");
+        font-size: chooseFontSize("bold");
         text-transform: uppercase;
         @include divice(599px){
             font-size: 1.4rem;
@@ -442,7 +443,7 @@
     padding: 60px 10px;
 
     h1{
-        font-size: chooseFontSize('blod');
+        font-size: chooseFontSize('bold');
         margin-bottom: 20px;
         color: $light-font-color;
         text-transform: uppercase;
@@ -455,7 +456,7 @@
     #schedual-content, .day-card{
         width: 65%;
         @include divice(599px){
-            width: 100%;
+            width: 97%;
         }
 
         @include divice(600px){
