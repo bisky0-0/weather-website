@@ -385,6 +385,7 @@
         width: 75%;
         @include divice(599px){
         width: 100%;
+        padding: 20px 10px;
         }
 
         @include divice(900px){
@@ -591,8 +592,25 @@
     text-align: center;
     border-radius: 10px;
     @include divice(599px){
+        top: 100%;
+        left: 0;
         width: 80%;
         bottom:-10px;
         height: fit-content;
+        font-size: 0.7rem;
+        padding: 7px;
     }
+
+    @include divice(600px){
+        top: 100%;
+        left: 0;
+        width: 81%;
+        bottom:-10px;
+        height: fit-content;
+    }
+
+    @include divice(900px){
+        top: calc($headrer-height/1.2);
+    }
+
 }
