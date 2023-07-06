@@ -292,6 +292,7 @@
         @include flexCenter(row wrap);
 
         @include divice(599px){
+            padding: 10px 10px;
             width: 97%;
         }
 
