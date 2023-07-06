@@ -71,6 +71,7 @@
 }
 @media (max-width: 599px) {
   #header #search-container {
+    justify-content: center;
     height: 40px;
     width: 100%;
   }
@@ -333,6 +334,7 @@
 }
 #section-two h1 {
   color: #00293b;
+  font-size: 2rem;
   text-transform: uppercase;
 }
 @media (max-width: 599px) {
@@ -457,6 +459,7 @@
   padding: 60px 10px;
 }
 #section-three h1 {
+  font-size: 2rem;
   margin-bottom: 20px;
   color: #fff;
   text-transform: uppercase;
@@ -479,7 +482,7 @@
 }
 @media (max-width: 599px) {
   #section-three #schedual-content, #section-three .day-card {
-    width: 100%;
+    width: 97%;
   }
 }
 @media (min-width: 600px) {
