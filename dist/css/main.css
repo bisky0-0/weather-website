@@ -485,6 +485,7 @@
 @media (max-width: 599px) {
   #section-three #schedual-content, #section-three .day-card {
     width: 97%;
+    border-radius: 8px;
   }
 }
 @media (min-width: 600px) {
